@@ -21,6 +21,10 @@ module Finance
 		end
 		res
 	end
+	
+	precompile(YahooQuote, (string,))
+	precompile(YahooOptionChain, (string,))
+	
 end
 
 
