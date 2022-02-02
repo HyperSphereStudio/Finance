@@ -1,4 +1,4 @@
-module Finance
+module HExcelFinance
 	using HTTP
 	using JSON
 
