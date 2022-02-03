@@ -3,7 +3,7 @@ module HExcelFinance
 	using JSON
 	using Serialization
 
-	export YahooQuote, ParseInternet, YahooOptionChain
+	export YahooQuote, ParseInternet, YahooOptionChain, DeserializeFile, SerializeFile
 
 	ParseInternet(url) = JSON.parse(String(HTTP.get(url).body))
 
@@ -24,6 +24,7 @@ module HExcelFinance
 	end
 
 	DeserializeFile(dir, fileName) = deserialize(joinpath(dir, fileName * ".bin"))
+	
 	function SerializeFile(dir, fileName, obj)
 		mkpath(dir)
 		serialize(joinpath(dir, fileName * ".bin"), obj)
@@ -33,7 +34,7 @@ module HExcelFinance
 	precompile(YahooOptionChain, (string,))
 	precompile(DeserializeFile, (string, string))
 	precompile(SerializeFile, (string, string, Any))
-	
+
 end
 
 
