@@ -23,12 +23,12 @@ module HExcelFinance
 		res
 	end
 
-	DeserializeFile(dir, fileName) = deserialize(joinpath(replace(dir, "\\" => "/"), fileName * ".bin"))
+	DeserializeFile(dir, fileName) = deserialize("$(replace(dir, "\\" => "/"))/$(fileName).bin")
 	
 	function SerializeFile(dir, fileName, obj)
 		dir = replace(dir, "\\" => "/")
 		mkpath(dir)
-		serialize(joinpath(dir, fileName * ".bin"), obj)
+		serialize("$(dir)/$(fileName).bin", obj)
 	end
 	
 	precompile(YahooQuote, (string,))
