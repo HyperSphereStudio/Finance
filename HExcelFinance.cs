@@ -13,9 +13,9 @@ public class HExcelFinance
     private static JLType yahooOptionChain;
 
 
-    [ExcelFunction(IsThreadSafe = true, IsMacroType = true)] public static object ParseInternet(string url) => Nt.Box(parseInternet.Invoke(url));
-    [ExcelFunction(IsThreadSafe = true, IsMacroType = true)] public static object YahooQuote(string symbol) => Nt.Box(yahooQuote.Invoke(symbol));
-    [ExcelFunction(IsThreadSafe = true, IsMacroType = true)] public static object YahooOptionChain(string symbol) => Nt.Box(yahooOptionChain.Create(symbol));
+    [ExcelFunction(Name = "Finance.ParseInternet", IsThreadSafe = true, IsMacroType = true)] public static object ParseInternet(string url) => Nt.Box(parseInternet.Invoke(url));
+    [ExcelFunction(Name = "Finance.YahooQuote", IsThreadSafe = true, IsMacroType = true)] public static object YahooQuote(string symbol) => Nt.Box(yahooQuote.Invoke(symbol));
+    [ExcelFunction(Name = "Finance.YahooOptionChain", IsThreadSafe = true, IsMacroType = true)] public static object YahooOptionChain(string symbol) => Nt.Box(yahooOptionChain.Create(symbol));
 
     public static string[] Main() {
         parseInternet = Julia.Eval("ParseInternet");
