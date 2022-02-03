@@ -1,7 +1,7 @@
 name = "HExcelFinance"
 uuid = "29c9baf6-d00a-45ae-a083-60b079d21fc5"
 authors = ["Johnathan Bizzano <johnathan.bizzano@gmail.com>"]
-version = "0.1.0"
+version = "0.2.0"
 
 [deps]
 HTTP = "cd3eb016-35fb-5094-929b-558a96fad6f3"
