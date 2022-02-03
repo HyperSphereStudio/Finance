@@ -1,6 +1,7 @@
 module HExcelFinance
 	using HTTP
 	using JSON
+	using Serialization
 
 	export YahooQuote, ParseInternet, YahooOptionChain
 
@@ -21,9 +22,17 @@ module HExcelFinance
 		end
 		res
 	end
+
+	DeserializeFile(dir, fileName) = deserialize(joinpath(dir, fileName * ".bin"))
+	function SerializeFile(dir, fileName, obj)
+		mkpath(dir)
+		serialize(joinpath(dir, fileName * ".bin"), obj)
+	end
 	
 	precompile(YahooQuote, (string,))
 	precompile(YahooOptionChain, (string,))
+	precompile(DeserializeFile, (string, string))
+	precompile(SerializeFile, (string, string, Any))
 	
 end
 
