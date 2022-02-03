@@ -34,6 +34,7 @@ module HExcelFinance
 	precompile(YahooQuote, (string,))
 	precompile(YahooOptionChain, (string,))
 	precompile(DeserializeFile, (string, string))
+	precompile(SerializeFile, (string, string, Any))
 
 end
 

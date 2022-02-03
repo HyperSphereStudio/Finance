@@ -16,13 +16,13 @@ public class HExcelFinance
     [ExcelFunction(Name = "Finance.YahooQuote", IsThreadSafe = true, IsMacroType = true)] public static object YahooQuote(string symbol) => Nt.Box(yahooQuote.Invoke(symbol));
     [ExcelFunction(Name = "Finance.YahooOptionChain", IsThreadSafe = true, IsMacroType = true)] public static object YahooOptionChain(string symbol) => Nt.Box(yahooOptionChain.Invoke(symbol));
     
-    [ExcelFunction(Name = "Finance.SerializeFile", IsThreadSafe = true)] public static object SerializeFile(string dir, string fileName, object o)
+    [ExcelFunction(Name = "Finance.SerializeFile", IsThreadSafe = true, IsMacroType = true)] public static object SerializeFile(string dir, string fileName, object o)
     {
         serializeFile.Invoke(dir, fileName, Jl.Xlunbox(o));
         return "Serialized File!";
     }
 
-    [ExcelFunction(Name = "Finance.DeserializeFile", IsThreadSafe = true)] public static object DeserializeFile(string dir, string fileName) => Nt.Box(deserializeFile.Invoke(dir, fileName));
+    [ExcelFunction(Name = "Finance.DeserializeFile", IsThreadSafe = true, IsMacroType = true)] public static object DeserializeFile(string dir, string fileName) => Nt.Box(deserializeFile.Invoke(dir, fileName));
 
 
     public static Type[] Main() {
