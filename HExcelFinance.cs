@@ -17,12 +17,12 @@ public class HExcelFinance
     [ExcelFunction(Name = "Finance.YahooQuote", IsThreadSafe = true, IsMacroType = true)] public static object YahooQuote(string symbol) => Nt.Box(yahooQuote.Invoke(symbol));
     [ExcelFunction(Name = "Finance.YahooOptionChain", IsThreadSafe = true, IsMacroType = true)] public static object YahooOptionChain(string symbol) => Nt.Box(yahooOptionChain.Create(symbol));
 
-    public static string[] Main() {
+    public static Type[] Main() {
         parseInternet = Julia.Eval("ParseInternet");
         yahooQuote = Julia.Eval("YahooQuote");
         yahooOptionChain = Julia.Eval("YahooOptionChain");
 
-        return new[] { "ParseInternet", "YahooQuote" , "YahooOptionChain"};
+        return new Type[0];
     }
 
 
