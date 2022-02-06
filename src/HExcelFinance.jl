@@ -5,7 +5,11 @@ module HExcelFinance
 
 	export YahooQuote, ParseInternet, YahooOptionChain, DeserializeFile, SerializeFile
 
-	ParseInternet(url) = JSON.parse(String(HTTP.get(url).body))
+	ParseInternet(url) = JSON.parse(String(
+		HTTP.get(url, 
+			readtimeout = 5,
+			retry = false,
+			redirect = false).body))
 
 	function YahooQuote(sym)
 		res = ParseInternet("https://query1.finance.yahoo.com/v7/finance/quote?symbols=$sym")
