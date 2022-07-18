@@ -35,10 +35,10 @@ module HExcelFinance
 		serialize("$(dir)/$(fileName).bin", obj)
 	end
 	
-	precompile(YahooQuote, (string,))
-	precompile(YahooOptionChain, (string,))
-	precompile(DeserializeFile, (string, string))
-	precompile(SerializeFile, (string, string, Any))
+	precompile(YahooQuote, (String,))
+	precompile(YahooOptionChain, (String,))
+	precompile(DeserializeFile, (String, String))
+	precompile(SerializeFile, (String, String, Any))
 
 end
 
